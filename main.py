@@ -77,6 +77,7 @@ def plot():
     except:    
         messagebox.showwarning(title="Error", message="Recheck the entered expression.")
 
+root.title("Graph Plotter Application")
 root.geometry("800x700")
 
 label = tk.Label(root, text="Graph Plotter Application", font=("Arial", 20))
