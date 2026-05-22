@@ -64,9 +64,17 @@ def plot():
         lamb_expr = sp.lambdify(x, sym_expr, modules=['numpy'])
         x_vals = np.linspace(-10, 10, 100)
         y_vals = lamb_expr(x_vals)
+        ax = plt.subplot()
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.spines['left'].set_position(('data', 0))
+        ax.spines['bottom'].set_position(('data', 0))
+        plt.grid()
         plt.plot(x_vals, y_vals)
         plt.show()
-    except:
+    except RuntimeWarning:
+        pass
+    except:    
         messagebox.showwarning(title="Error", message="Recheck the entered expression.")
 
 root.geometry("800x700")
